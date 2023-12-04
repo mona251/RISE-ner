@@ -1,1 +1,1 @@
-# RISE-ner
+# RISE-NER
