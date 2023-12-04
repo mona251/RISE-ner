@@ -1,4 +1,5 @@
 # RISE-NER
+This is the repository for Named Entity Recognition (NER) on the MultiNERD dataset. Below, you'll find the instructions on how to run this repository.
 
 First, install the required packages:
 
