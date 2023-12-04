@@ -27,4 +27,4 @@ The second option is to run all cells in the .ipynb. Remember to change the vari
 
 The last option is to run the .ipynb file on google colab. The necessary packages are included in the .ipynb file.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1c1j4spwZ3fc0ebIfStNUHQOm39Flc0G5)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1c1j4spwZ3fc0ebIfStNUHQOm39Flc0G5?usp=sharing)
