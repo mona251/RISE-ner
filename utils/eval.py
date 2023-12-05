@@ -39,18 +39,3 @@ def compute_inference_metrics(label, pred, metric, confusion_matrix, label_list,
         "f1": results["overall_f1"],
         "accuracy": results["overall_accuracy"],
     }, confusion
-
-def compute_scores(tokenized_datasets, model, metric, label_list, device):
-    scores = []
-    model = model.eval()
-    for inputs in tqdm(tokenized_datasets['test']):
-        label = inputs['labels']
-        with torch.no_grad():
-            inputs = {'input_ids': torch.Tensor([inputs['input_ids']]).long().to(device), 
-                      'attention_mask': torch.Tensor([inputs['attention_mask']]).long().to(device)}
-            logits = model(**inputs).logits
-            pred = np.argmax(logits.cpu().numpy(), axis = 2)[0]
-        score = compute_inference_metrics(label, pred, metric, label_list)
-        scores.append(score)
-    
-    return scores
