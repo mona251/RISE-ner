@@ -35,19 +35,21 @@ def inference(system, tokenized_datasets, model, metric, confusion_matrix, label
     y_test = list(chain.from_iterable(y_test))
     y_pred =  list(chain.from_iterable(y_pred))
     
-    score, confusion = compute_inference_metrics(y_test, y_pred, metric, confusion_matrix, 
+    score, confusion, results = compute_inference_metrics(y_test, y_pred, metric, confusion_matrix, 
                                                  label_list, label2id)
     
-    with open(f'results_system{system}.txt', 'w') as file:
+    with open(f'overall_results_system{system}.txt', 'w') as file:
         json.dump(score, file, indent=4)   
         
-    
     with open(f'confusion_matrix_system{system}.txt', 'w') as file:
         for row in confusion['confusion_matrix']:
             row_str = '\t'.join(str(val) for val in row)
             file.write(row_str + '\n')
-    print("Inference completed! Evaluation scores: ", score, '\n',
-         "confusion matrix: ", confusion['confusion_matrix'].tolist())
+            
+    with open(f'results_system{system}.txt', 'w') as file:
+        json.dump(score, file, indent=4)
+        
+    print("Inference completed! Evaluation scores: ", score, '\n')
         
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
