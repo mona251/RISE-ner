@@ -45,9 +45,10 @@ def inference(system, tokenized_datasets, model, metric, confusion_matrix, label
         for row in confusion['confusion_matrix']:
             row_str = '\t'.join(str(val) for val in row)
             file.write(row_str + '\n')
-            
+        
     with open(f'results_system{system}.txt', 'w') as file:
-        json.dump(score, file, indent=4)
+        for key, value in results.items():
+            file.write(f"{key}: {value}\n")
         
     print("Inference completed! Evaluation scores: ", score, '\n')
         
