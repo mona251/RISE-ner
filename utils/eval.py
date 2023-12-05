@@ -38,4 +38,4 @@ def compute_inference_metrics(label, pred, metric, confusion_matrix, label_list,
         "recall": results["overall_recall"],
         "f1": results["overall_f1"],
         "accuracy": results["overall_accuracy"],
-    }, confusion
+    }, confusion, results
