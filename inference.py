@@ -9,8 +9,7 @@ import numpy as np
 from tqdm import tqdm
 from datasets import load_dataset
 from utils.util import preprocess
-from utils.eval import compute_scores, compute_inference_metrics
-from collections import defaultdict
+from utils.eval import compute_inference_metrics
 from itertools import chain
 
 from transformers import AutoTokenizer, AutoModelForTokenClassification
