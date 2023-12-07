@@ -35,9 +35,11 @@ def inference(system, tokenized_datasets, model, metric, confusion_matrix, label
     y_test = list(chain.from_iterable(y_test))
     y_pred =  list(chain.from_iterable(y_pred))
     
-    score, confusion, results = compute_inference_metrics(y_test, y_pred, metric, confusion_matrix, 
+    score, confusion, results, kappa = compute_inference_metrics(y_test, y_pred, metric, confusion_matrix, 
                                                  label_list, label2id)
-    
+    with open(f'kappa_system{system}.txt', 'w') as file:
+        file.write(str(kappa))
+        
     with open(f'overall_results_system{system}.txt', 'w') as file:
         json.dump(score, file, indent=4)   
         
@@ -50,7 +52,8 @@ def inference(system, tokenized_datasets, model, metric, confusion_matrix, label
         for key, value in results.items():
             file.write(f"{key}: {value}\n")
         
-    print("Inference completed! Evaluation scores: ", score, '\n')
+    print("Inference completed! Evaluation scores: ", score, '\n',
+         "Cohen Kappa Score: ", kappa)
         
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
