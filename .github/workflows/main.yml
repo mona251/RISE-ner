@@ -20,6 +20,8 @@ jobs:
           # Your ML workflow goes here
           pip install -r requirements.txt
           python train.py
+      - name: Inference model
+        run: |
           python inference.py
       - name: Write CML report
         env:
