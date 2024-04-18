@@ -23,7 +23,7 @@ def train(tokenized_datasets, model,
     
     args = TrainingArguments(
     output_dir,
-    report_to=None,
+    report_to='none',
     evaluation_strategy="epoch",
     save_strategy="epoch",
     learning_rate=2e-5,
