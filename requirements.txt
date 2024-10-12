@@ -1,7 +1,9 @@
 datasets==2.15.0
 evaluate==0.4.1
 numpy==1.24.3
-torch==2.1.1
+--find-links https://download.pytorch.org/whl/torch_stable.html
+
+torch==2.1.1+cu118
 tqdm==4.65.0
 transformers==4.32.1
 seqeval==1.2.2
